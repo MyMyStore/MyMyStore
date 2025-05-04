@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Example</title>
+    <title>가격 표시된 반응형 이미지 맵</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
+        /* 반응형 이미지 */
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            position: relative;
         }
-        .container {
-            margin-top: 50px;
-        }
-        .price {
-            background-color: rgba(0, 0, 0, 0.6);
+
+        /* 가격 표시 */
+        .price-tag {
+            position: absolute;
             color: white;
-            font-size: 18px;
-            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px;
             border-radius: 5px;
+            font-size: 16px;
+            z-index: 10; /* 가격이 다른 요소에 가려지지 않도록 */
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }
+
+        /* 가격 위치 비율을 설정 */
+        .sofa-price {
+            top: 10%;   /* 화면 크기에 따라 비율 조정 */
+            left: 20%;  /* 화면 크기에 맞게 위치 */
+        }
+
+        .plant-price {
+            top: 30%;   /* 화면 크기에 따라 비율 조정 */
+            left: 60%;  /* 화면 크기에 맞게 위치 */
+        }
+
+        .lamp-price {
+            top: 50%;   /* 화면 크기에 따라 비율 조정 */
+            left: 75%;  /* 화면 크기에 맞게 위치 */
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>GitHub Pages로 만든 페이지</h1>
-        <img src="https://i.imgur.com/IpPTNby.jpeg" alt="Living Room Image" style="width:100%; max-width:800px;">
-        <div class="price" style="position: absolute; top: 30%; left: 10%;">소파: 200,000원</div>
-        <div class="price" style="position: absolute; top: 50%; left: 30%;">식물: 50,000원</div>
-    </div>
+
+    <!-- 반응형 이미지 -->
+    <img src="https://i.imgur.com/IpPTNby.jpeg" usemap="#image-map" class="responsive-img" alt="Living Room Image">
+
+    <!-- 가격 태그 -->
+    <div class="price-tag sofa-price">소파: 200,000원</div>
+    <div class="price-tag plant-price">식물: 50,000원</div>
+    <div class="price-tag lamp-price">조명: 100,000원</div>
+
+    <!-- 이미지 맵 영역 -->
+    <map name="image-map">
+        <area target="_blank" alt="Sofa" title="Sofa" href="https://yourwebsite.com/sofa-detail" coords="100,250,400,400" shape="rect">
+        <area target="_blank" alt="Plant" title="Plant" href="https://yourwebsite.com/plant-detail" coords="450,150,500,250" shape="rect">
+        <area target="_blank" alt="Lamp" title="Lamp" href="https://yourwebsite.com/lamp-detail" coords="600,200,650,300" shape="rect">
+    </map>
+
 </body>
 </html>
