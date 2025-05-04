@@ -1,33 +1,80 @@
-/* 반응형 이미지 */
-.responsive-img {
-    width: 100%;  /* 이미지 크기가 화면 크기에 맞게 조정 */
-    height: auto;
-    position: relative;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 이미지 맵</title>
+    <style>
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
 
-/* 원 버튼 */
-.btn {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: #ff8c00;
-    border-radius: 50%;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    line-height: 50px;
-    cursor: pointer;
-    z-index: 10;
-}
+        /* 원 버튼 */
+        .btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff8c00;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            line-height: 50px;
+            cursor: pointer;
+            z-index: 10;
+            top: 30%;  /* 예시로 설정된 위치, 조정 필요 */
+            left: 60%; /* 예시로 설정된 위치, 조정 필요 */
+        }
 
-/* 가격표 */
-.price-tag {
-    position: absolute;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 16px;
-    z-index: 10;
-    white-space: nowrap;
-}
+        /* 가격 표시 */
+        .price-tag {
+            position: absolute;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .sofa-price {
+            top: 10%;
+            left: 20%;
+        }
+
+        .plant-price {
+            top: 30%;
+            left: 60%;
+        }
+
+        .lamp-price {
+            top: 50%;
+            left: 75%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 반응형 이미지 -->
+    <img src="https://i.imgur.com/IpPTNby.jpeg" class="responsive-img" alt="Living Room Image">
+
+    <!-- 원 버튼 -->
+    <div class="btn" id="button">+</div>
+
+    <!-- 가격 표시 -->
+    <div class="price-tag sofa-price">소파: 200,000원</div>
+    <div class="price-tag plant-price">식물: 50,000원</div>
+    <div class="price-tag lamp-price">조명: 100,000원</div>
+
+    <!-- 이미지 맵 영역 -->
+    <map name="image-map">
+        <area target="_blank" alt="Sofa" title="Sofa" href="https://yourwebsite.com/sofa-detail" coords="100,250,400,400" shape="rect">
+        <area target="_blank" alt="Plant" title="Plant" href="https://yourwebsite.com/plant-detail" coords="450,150,500,250" shape="rect">
+        <area target="_blank" alt="Lamp" title="Lamp" href="https://yourwebsite.com/lamp-detail" coords="600,200,650,300" shape="rect">
+    </map>
+
+</body>
+</html>
