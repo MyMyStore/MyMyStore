@@ -1,62 +1,33 @@
-<style>
-    .image-container {
-        position: relative;
-        width: 100%;
-    }
+/* 반응형 이미지 */
+.responsive-img {
+    width: 100%;  /* 이미지 크기가 화면 크기에 맞게 조정 */
+    height: auto;
+    position: relative;
+}
 
-    .responsive-img {
-        width: 100%;
-        height: auto;
-    }
+/* 원 버튼 */
+.btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
 
-    .price-tag {
-        position: absolute;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 5px;
-        border-radius: 5px;
-        font-size: 2vw;
-        z-index: 10;
-        white-space: nowrap;
-    }
-
-    /* 소파 가격표 위치 */
-    .sofa-price {
-        top: 15%;
-        left: 20%;
-    }
-
-    /* 식물 가격표 위치 */
-    .plant-price {
-        top: 30%;
-        left: 55%;
-    }
-
-    /* 조명 가격표 위치 (수정된 값) */
-    .lamp-price {
-        top: 50%;
-        left: 72%; /* 기존 77%에서 수정 */
-    }
-
-    /* 화면 크기 변화에 따라 가격표 위치 조정 */
-    @media (max-width: 768px) {
-        .lamp-price {
-            top: 60%;
-            left: 60%;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .lamp-price {
-            top: 65%;
-            left: 50%;
-        }
-    }
-</style>
-
-<div class="image-container">
-    <img src="https://i.imgur.com/IpPTNby.jpeg" class="responsive-img" alt="Living Room Image">
-    <div class="price-tag sofa-price">소파: 200,000원</div>
-    <div class="price-tag plant-price">식물: 50,000원</div>
-    <div class="price-tag lamp-price">조명: 100,000원</div>
-</div>
+/* 가격표 */
+.price-tag {
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 10;
+    white-space: nowrap;
+}
