@@ -11,6 +11,7 @@
             align-items: center;
             height: 100vh;
             background-color: #f5f5f5;
+            margin: 0;
         }
 
         .img-container {
@@ -19,7 +20,7 @@
             height: 800px;
             border: 2px solid #ccc;
             background-image: url('https://i.imgur.com/IpPTNby.jpeg');
-            background-size: contain; /* 변경: 비율 유지하며 표시 */
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -33,10 +34,11 @@
             font-size: 14px;
             display: none;
             transition: opacity 0.3s ease-in-out;
+            opacity: 0; /* 기본 opacity 0 */
         }
 
-        /* 쇼파, 식물, 조명의 위치 */
-        .sofa { top: 60%; left: 15%; } /* 퍼센티지 값 사용 */
+        /* 마커의 위치 설정 */
+        .sofa { top: 60%; left: 15%; }
         .light { top: 10%; left: 35%; }
         .plant { top: 30%; left: 70%; }
     </style>
@@ -49,17 +51,22 @@
     </div>
 
     <script>
+        // 모든 marker 요소에 대해
         document.querySelectorAll('.marker').forEach(marker => {
-            marker.style.display = 'none'; // 초기 숨김 처리
-
-            marker.parentElement.addEventListener('mouseenter', function() {
-                marker.style.display = 'block';
-                marker.style.opacity = '1';
+            const parentElement = marker.parentElement;
+            
+            // 마우스가 부모 요소에 들어갈 때
+            parentElement.addEventListener('mouseenter', function() {
+                marker.style.display = 'block';  // 마커 표시
+                setTimeout(() => {
+                    marker.style.opacity = '1';  // 서서히 표시되도록 opacity를 변경
+                }, 10);
             });
 
-            marker.parentElement.addEventListener('mouseleave', function() {
-                marker.style.opacity = '0';
-                setTimeout(() => marker.style.display = 'none', 300);
+            // 마우스가 부모 요소에서 나갈 때
+            parentElement.addEventListener('mouseleave', function() {
+                marker.style.opacity = '0';  // 서서히 사라지게 하기 위해 opacity 0으로
+                setTimeout(() => marker.style.display = 'none', 300);  // 서서히 사라진 후 display 숨기기
             });
         });
     </script>
