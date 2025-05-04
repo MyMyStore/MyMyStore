@@ -22,20 +22,35 @@
 
     /* 소파 가격표 위치 */
     .sofa-price {
-        top: 30%;
+        top: 15%;
         left: 20%;
     }
 
     /* 식물 가격표 위치 */
     .plant-price {
         top: 30%;
-        left: 90%;
+        left: 55%;
     }
 
     /* 조명 가격표 위치 (수정된 값) */
     .lamp-price {
-        top: 50%; /* 빨간색 *에 맞춰 위치 조정 */
-        left: 25%; /* 빨간색 *에 맞춰 위치 조정 */
+        top: 50%;
+        left: 72%; /* 기존 77%에서 수정 */
+    }
+
+    /* 화면 크기 변화에 따라 가격표 위치 조정 */
+    @media (max-width: 768px) {
+        .lamp-price {
+            top: 60%;
+            left: 60%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lamp-price {
+            top: 65%;
+            left: 50%;
+        }
     }
 </style>
 
