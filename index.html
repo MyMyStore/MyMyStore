@@ -3,79 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>반응형 이미지 맵</title>
+    <title>반응형 가격표</title>
     <style>
-        .responsive-img {
-            width: 100%;
-            height: auto;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .img-container {
             position: relative;
+            width: 600px;
+            height: 800px;
+            border: 2px solid #ccc;
+            background-image: url('https://i.imgur.com/IpPTNby.jpeg');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* 원 버튼 */
-        .btn {
+        .marker {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #ff8c00;
-            border-radius: 50%;
-            text-align: center;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
-            font-size: 18px;
-            line-height: 50px;
-            cursor: pointer;
-            z-index: 10;
-            top: 30%;  /* 예시로 설정된 위치 */
-            left: 60%; /* 예시로 설정된 위치 */
-        }
-
-        /* 가격 표시 */
-        .price-tag {
-            position: absolute;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 5px;
             border-radius: 5px;
-            font-size: 2vw;  /* 반응형 폰트 크기 */
-            z-index: 10;
-            white-space: nowrap;
+            font-size: 14px;
+            display: none;
         }
 
-        /* 가격표 위치 비율로 설정 */
-        .sofa-price {
-            top: 10%;
-            left: 20%;
-        }
-
-        .plant-price {
-            top: 30%;
-            left: 60%;
-        }
-
-        .lamp-price {
-            top: 45%;   /* 조명 가격표 위치 */
-            left: 75%;   /* 조명 가격표 위치 */
-        }
+        /* 쇼파, 식물, 조명의 위치 */
+        .sofa { top: 450px; left: 100px; }
+        .plant { top: 200px; left: 300px; }
+        .light { top: 50px; left: 500px; }
     </style>
 </head>
 <body>
+    <div class="img-container">
+        <div class="marker sofa">₩250,000</div>
+        <div class="marker plant">₩120,000</div>
+        <div class="marker light">₩80,000</div>
+    </div>
 
-    <!-- 반응형 이미지 -->
-    <img src="https://i.imgur.com/IpPTNby.jpeg" class="responsive-img" alt="Living Room Image">
+    <script>
+        document.querySelectorAll('.marker').forEach(marker => {
+            marker.style.display = 'none'; // 초기 숨김 처리
 
-    <!-- 원 버튼 -->
-    <div class="btn" id="button">+</div>
+            marker.parentElement.addEventListener('mouseenter', function() {
+                marker.style.display = 'block';
+            });
 
-    <!-- 가격 표시 -->
-    <div class="price-tag sofa-price">소파: 200,000원</div>
-    <div class="price-tag plant-price">식물: 50,000원</div>
-    <div class="price-tag lamp-price">조명: 100,000원</div>
-
-    <!-- 이미지 맵 영역 -->
-    <map name="image-map">
-        <area target="_blank" alt="Sofa" title="Sofa" href="https://yourwebsite.com/sofa-detail" coords="100,250,400,400" shape="rect">
-        <area target="_blank" alt="Plant" title="Plant" href="https://yourwebsite.com/plant-detail" coords="450,150,500,250" shape="rect">
-        <area target="_blank" alt="Lamp" title="Lamp" href="https://yourwebsite.com/lamp-detail" coords="600,200,650,300" shape="rect">
-    </map>
-
+            marker.parentElement.addEventListener('mouseleave', function() {
+                marker.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
